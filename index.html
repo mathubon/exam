@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-
 <html>
-   <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-      <base target="_top">
-   </head>
-   <body>
-      <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 0;" src="https://script.google.com/macros/s/AKfycbx5quRvXebzle1z7lvbmA-lRNTF_KiC2a6kVZ86XgTwxmg1dZ532s2csUulRqy903fpzw/exec"></iframe>
-   </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <button onclick="loadData()">โหลดข้อมูลจาก Apps Script</button>
+  <div id="output"></div>
+
+  <script>
+    function loadData() {
+      fetch("https://script.google.com/macros/s/AKfycbx5quRvXebzle1z7lvbmA-lRNTF_KiC2a6kVZ86XgTwxmg1dZ532s2csUulRqy903fpzw/exec")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("output").innerHTML = data;
+      })
+      .catch(error => console.error("เกิดข้อผิดพลาด:", error));
+    }
+  </script>
+</body>
 </html>
